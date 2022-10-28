@@ -1,0 +1,22 @@
+//npx prisma init
+//npx prisma studio
+//nest g module prisma, nest g service prisma = to connect controllers to db
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Product {
+    id Int @id @default(autoincrement())
+    prodId String @unique
+    name String
+    description String
+    price Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
