@@ -14,8 +14,8 @@ export class ProductService {
       return this.prisma.product.create({data})
     }
 
-    getProducts() {
-      return this.prisma.product.findMany()
+    getProducts(params?: any) {
+      return this.prisma.product.findMany(params)
     }
     
     getSingleProduct(prodId: string)  {
